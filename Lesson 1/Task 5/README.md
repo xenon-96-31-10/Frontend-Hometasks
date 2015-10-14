@@ -16,8 +16,8 @@ function makeLine() {
   var students = [];
 
   for (var i = 0; i < 10; i++) {
-    var student = function() { // функция-стрелок
-      alert( i ); // выводит свой номер
+    var student = function() { // функция-ученик
+      alert( i ); // кричит свой номер
     };
     students.push(student);
   }
