@@ -1,4 +1,4 @@
-# Lesson 1
+﻿# Lesson 1
 ## Task 3
 
 ### Задание: Сортировка
@@ -29,7 +29,7 @@ users.sort(function(a, b) {
 // по полю age  (Маша, Вася, Петя)
 users.sort(function(a, b) {
   return a.age > b.age ? 1 : -1;
-}); 
+); 
 ```
 
 Нужно упростить до следующего:
@@ -44,7 +44,7 @@ users.forEach(function(user) {
 users.sort(byField('age'));
 
 users.forEach(function(user) {
-  alert( user.name );
+  ( user.name );
 }); // Маша, Вася, Петя
 ```
 

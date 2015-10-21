@@ -1,5 +1,20 @@
 function makeBuffer() {
     // your code goes here
+    var Counter="";
+    function buffer(counter){
+        if(counter == undefined)
+        {
+            return Counter;
+        }else{
+            Counter += counter;
+            return Counter;
+        }
+    }
+    buffer.clear = function(){
+        Counter="";
+    }
+    return buffer;
+
 }
 
 var buffer = makeBuffer();
