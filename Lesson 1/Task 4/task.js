@@ -9,6 +9,7 @@ function filter(arr, func){
     });
     return arr0;
 };
+
 function inBetween(a,b){
     return function(item){
         if((a<=item)&&(item<=b)){
@@ -19,11 +20,13 @@ function inBetween(a,b){
 
 function inArray(arr1){
     return function(item){
+        var flag = false;
             arr1.forEach(function(item1) {
                 if (item1 == item) {
-                    return true;
+                    flag = true;
                 }
             })
+        return flag;
     };
 }
 function sumOf(arr2){
@@ -38,6 +41,6 @@ function sumOf(arr2){
 })); // 2,4,6*/
 
 //alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
-//alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
-alert( sumOf([1, 2, 10, -13]) ); // 0
+alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+//alert( sumOf([1, 2, 10, -13]) ); // 0
 

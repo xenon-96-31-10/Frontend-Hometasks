@@ -3,18 +3,29 @@ function makeLine() {
 
     var students = [];
 
-    for (var i = 0; i <10; i++) {
-        var student = function fun() { // ôóíêöèÿ-ó÷åíèê
-            alert( fun.i ); // êðè÷èò ñâîé íîìåð
-        };
-        student.i=i;
+    /*for (var i = 0; i <10; i++) {
+     var student = function fun() { // Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ-ÑƒÑ‡ÐµÐ½Ð¸Ðº
+     alert( fun.i ); // ÐºÑ€Ð¸Ñ‡Ð¸Ñ‚ ÑÐ²Ð¾Ð¹ Ð½Ð¾Ð¼ÐµÑ€
+     };
+     student.i=i;
+     students.push(student);
+     }*/
+    /*for (var i = 0; i <10; i++) {
+     var student = (function (i) { // Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ-ÑƒÑ‡ÐµÐ½Ð¸Ðº
+     return function() {alert( i )}; // ÐºÑ€Ð¸Ñ‡Ð¸Ñ‚ ÑÐ²Ð¾Ð¹ Ð½Ð¾Ð¼ÐµÑ€
+     })(i);
+     students.push(student);
+     }; */
+    for (var i = 0; i < 10; i++) {
+        var student = function (i) { // Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ-ÑƒÑ‡ÐµÐ½Ð¸Ðº
+            alert(i); // ÐºÑ€Ð¸Ñ‡Ð¸Ñ‚ ÑÐ²Ð¾Ð¹ Ð½Ð¾Ð¼ÐµÑ€
+        }.bind(this, i);
         students.push(student);
     }
-
     return students;
 }
 
 var line = makeLine();
 
-line[0](); // ó÷åíèê êðè÷èò 10, à äîëæåí 0
-line[5](); // ó÷åíèê ïî-ïðåæíåìó êðè÷èò 10..., à äîëæåí 5
+line[0](); // ÑƒÑ‡ÐµÐ½Ð¸Ðº ÐºÑ€Ð¸Ñ‡Ð¸Ñ‚ 10, Ð° Ð´Ð¾Ð»Ð¶ÐµÐ½ 0
+line[5](); // ÑƒÑ‡ÐµÐ½Ð¸Ðº Ð¿Ð¾-Ð¿Ñ€ÐµÐ¶Ð½ÐµÐ¼Ñƒ ÐºÑ€Ð¸Ñ‡Ð¸Ñ‚ 10..., Ð° Ð´Ð¾Ð»Ð¶ÐµÐ½ 5
