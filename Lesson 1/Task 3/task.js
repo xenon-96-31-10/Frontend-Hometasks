@@ -15,13 +15,8 @@ var users = [{
 //'function(a, b) { return a.'+ field + ' > b.'+ field +' ? 1 : -1;}'
 
 var byField = function(field){
-    if(field='name'){
-        return function(a, b) { return a.name > b.name ? 1 : -1;};
-    }
-    if(field='age'){
-        return function(a, b) { return a.age > b.age ? 1 : -1;};// не видит поле age массива users
-    }
 
+        return function(a, b) { return a[field] > b[field] ? 1 : -1;};
 }
 
 // по полю name (Вася, Маша, Петя)
