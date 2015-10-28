@@ -14,6 +14,5 @@ function duckCount() {
     });
     return console.log(arr1.length);
     //console.log(arguments[2].hasOwnProperty('quack'));
-
 }
 duckCount(duck, notDuck, ducksArr,duck1); // 2
