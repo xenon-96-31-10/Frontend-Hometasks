@@ -10,7 +10,6 @@ var Game = function Game(max_figures) {
     this.interval = null;
     this.MAX_FIGURES_NUMBER = max_figures;
     this._inited = false;
-
 };
 
 Game.FIELD = null;
@@ -26,6 +25,8 @@ Game.prototype.initialize = function () {
     this.figuresCounterElement = document.querySelector('.fields__elements-count');
 
     Game.FIELD = document.querySelector('.field');
+
+
 
     this._inited = true;
 };
@@ -44,14 +45,15 @@ Game.prototype.run = function () {
         backdrop.style.visibility = 'hidden';
     }
 
+    Game.FIELD.addEventListener('click', this.addFigure.bind(this), false);
+
     /* Каждые 1000/40 миллисекунд (40 FPS) вызываем перерисовку фигур с изменившимися координатами */
     var _this = this;
     this.interval = setInterval(function () {
         _this.nextFrame();
     }, 1000 / 40);
-
-
 };
+
 /**
  * @description Для каждой фигуры вызывается функция go, которая самостоятельно меняет координаты своей фигуры.
  */
@@ -62,10 +64,9 @@ Game.prototype.nextFrame = function () {
     }
 };
 
-/* */
-
 Game.prototype.getRandomFigure = function () {
-    switch (getRandom(1, 4)) {
+
+    switch (getRandom(1, 5)) {
         case 1 :
             var figure = new Ellipse(getRandom(10, 100), getRandom(10, 100), getRandom(1,10));
             break;
@@ -78,16 +79,22 @@ Game.prototype.getRandomFigure = function () {
         case 4 :
             var figure = new Square(getRandom(10, 100), getRandom(1,10));
             break;
+        case 5 :
+            var figure = new Picture(getRandom(100,300), getRandom(1, 10));
+            break;
     }
 
     return figure;
 }
-Game.prototype.addFigure = function () {
-    this.figuresGroup.add(this.getRandomFigure());
+
+Game.prototype.addFigure = function (event) {
+    var randomFigure = this.getRandomFigure();
+    randomFigure.coords = {
+        x: event.x,
+        y: event.y
+    }
+    this.figuresGroup.add(randomFigure);
+    this.figuresCounterElement.innerHTML = this.figuresGroup.getFigures().length;
 }
-
-Game.FIELD.addEventListener('click', this.addFigure(), false);
-
-/* */
 
 

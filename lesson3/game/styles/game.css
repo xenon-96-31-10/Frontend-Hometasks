@@ -3,6 +3,11 @@
     height: 24px;
     background-color: #000;
 }
+.figure-ellipse {
+    background-color: rgba(63, 255, 68, 0.69);
+    border-radius: 50%;
+    border: 1px solid rgba(48, 238, 255, 0.79);
+}
 .figure-circle {
     background-color: rgba(255, 206, 146, 0.69);
     border-radius: 50%;
@@ -16,8 +21,6 @@
     background-color: rgba(255, 65, 147, 0.54);
     border: 1px solid rgba(22, 57, 255, 0.62);
 }
-.figure-ellipse {
-    background-color: rgba(63, 255, 68, 0.69);
-    border-radius: 50%;
-    border: 1px solid rgba(48, 238, 255, 0.79);
+.figure-picture { 
+    background-image: url("image.png");
 }

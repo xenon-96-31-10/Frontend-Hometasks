@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var playButton = document.querySelector('.start-game');
     playButton.addEventListener('click', function () {
         game.run();
+
     });
 });
 

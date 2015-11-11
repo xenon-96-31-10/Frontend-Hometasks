@@ -1,6 +1,7 @@
 var FiguresGroup = function FiguresGroup(figures_limit_length) {
     this._figures_limit_length = figures_limit_length;
     this._figures = [];
+
 };
 
 /**
@@ -8,13 +9,12 @@ var FiguresGroup = function FiguresGroup(figures_limit_length) {
  * @param figure
  */
 FiguresGroup.prototype.add = function (figure) {
-    if(this._figures.length < this._figures_limit_length){
+    if(this._figures.length < this._figures_limit_length) {
         this._figures.push(figure);
-    }
-    else{
-        throw new Error('Warning! The limit of count is exceeded!');
-    }
 
+    } else {
+        throw new Error('The limit of quantity of figures is exceeded');
+    }
 };
 
 /**
@@ -37,9 +37,9 @@ FiguresGroup.prototype.clear = function () {
  * @param {Figure} figure
  */
 FiguresGroup.prototype.remove = function (figure) {
-    for( var i = 0; i < this._figures.length; i++){
-        if( this._figures[i].id = figure.id){
-            this._figures.slice(i,1);
+    for(var i = 0; i < this._figures.length; i++) {
+        if (this._figures[i].id == figure.id) {
+            this._figures.splice(i, 1);
         }
     }
 };
